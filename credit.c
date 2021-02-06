@@ -8,7 +8,7 @@ int main(void)
     long n;
     n = get_long("Card number:");
     long number = n; //to get digit count
-    long numba = n; //to get first two digits of card number to check for company
+    long firstTwoDigits = n; //to get first two digits of card number to check for company
     int digits = 0;
     while (number > 0)
         //long is integer so dividing by 10 each time, until the last digit, will give the number of digits there are in the card number
@@ -43,23 +43,23 @@ int main(void)
     }
     if (sum % 10 == 0) //if the sum of all the digits is number ending in 0
     {
-        while (numba >= 100) //reduce the digits in the card number until remaining number is two digits
+        while (firstTwoDigits >= 100) //reduce the digits in the card number until remaining number is two digits
         {
-            numba /= 10;
+            firstTwoDigits /= 10;
         }
-        if (numba > 50 && numba < 56 && digits == 16) //checking which company
+        if (firstTwoDigits > 50 && firstTwoDigits < 56 && digits == 16) //checking which company
         {
             printf("MASTERCARD\n");
         }
-        else if ((numba == 34 || numba == 37) && digits == 15)
+        else if ((firstTwoDigits == 34 || firstTwoDigits == 37) && digits == 15)
         {
             printf("AMEX\n");
         }
-        else if (numba / 10 == 4 && (digits == 13 || digits == 16))
+        else if (firstTwoDigits / 10 == 4 && (digits == 13 || digits == 16))
         {
             printf("VISA\n");
         }
-        else if (numba / 10 == 6 && digits == 16)
+        else if (firstTwoDigits / 10 == 6 && digits == 16)
         {
             printf("DISCOVER\n");
         }
